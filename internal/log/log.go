@@ -93,8 +93,10 @@ func (l *Log) Read(off uint64) (*api.Record, error) {
 			break
 		}
 	}
+	fmt.Println("found segment", s)
 	if s == nil || s.nextOffset <= off {
-		return nil, fmt.Errorf("offset out of range: %d", off)
+		fmt.Println("err out of range")
+		return nil, api.ErrOffsetOutOfRange{Offset: off}
 	}
 	return s.Read(off)
 }

@@ -58,6 +58,8 @@ func (s *segment) Append(record *api.Record) (offset uint64, err error) {
 	cur := s.nextOffset
 	record.Offset = cur
 	p, err := proto.Marshal(record)
+	fmt.Println("Writing", p)
+
 	if err != nil {
 		return 0, err
 	}
@@ -83,6 +85,7 @@ func (s *segment) Read(offset uint64) (*api.Record, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Printf("Read %x\n", p)
 	record := &api.Record{}
 	err = proto.Unmarshal(p, record)
 	return record, err
