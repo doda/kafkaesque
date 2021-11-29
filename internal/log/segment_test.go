@@ -6,7 +6,7 @@ import (
 	"os"
 	"testing"
 
-	api "github.com/dodafin/kafkaesque/api/v1"
+	api "github.com/doda/kafkaesque/api/v1"
 	"github.com/stretchr/testify/require"
 )
 

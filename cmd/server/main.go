@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/dodafin/kafkaesque/internal/server"
+	"github.com/doda/kafkaesque/internal/server"
 )
 
 func main() {

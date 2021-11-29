@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	api "github.com/dodafin/kafkaesque/api/v1"
+	api "github.com/doda/kafkaesque/api/v1"
 	"google.golang.org/grpc"
 )
 
@@ -14,8 +14,11 @@ type Config struct {
 
 var _ api.LogServer = (*grpcServer)(nil)
 
-func NewGRPCServer(config *Config) (*grpc.Server, error) {
-	gsrv := grpc.NewServer()
+func NewGRPCServer(config *Config, opts ...grpc.ServerOption) (
+	*grpc.Server,
+	error,
+) {
+	gsrv := grpc.NewServer(opts...)
 	srv, err := newgrpcServer(config)
 	if err != nil {
 		return nil, err

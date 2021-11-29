@@ -11,7 +11,7 @@ import (
 	"strings"
 	"sync"
 
-	api "github.com/dodafin/kafkaesque/api/v1"
+	api "github.com/doda/kafkaesque/api/v1"
 )
 
 type Log struct {
